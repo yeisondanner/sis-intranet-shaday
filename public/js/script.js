@@ -1,1 +1,52 @@
-// Archivo JavaScript para autenticaci y lica de frontend 
+// public/js/script.js
+
+function login() {
+    // Obtiene los valores de usuario y contrase帽a del formulario
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // Verifica que los campos no est茅n vac铆os
+    if (username === "" || password === "") {
+        alert("Por favor, complete todos los campos.");
+        return;
+    }
+
+    // Prepara la solicitud al servidor
+    fetch('../api/login.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Si la autenticaci贸n es exitosa, redirige al dashboard
+                window.location.href = "dashboard.html";
+            } else {
+                // Muestra un mensaje de error en caso de fallo
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error en la solicitud de inicio de sesi贸n:", error);
+            alert("Error en la conexi贸n con el servidor.");
+        });
+}
+
+// Funci贸n para cerrar sesi贸n
+function logout() {
+    fetch('../api/logout.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Redirige al usuario a la p谩gina de inicio de sesi贸n
+                window.location.href = 'index.html';
+            } else {
+                alert("Error al cerrar sesi贸n.");
+            }
+        })
+        .catch(error => console.error("Error al cerrar sesi贸n:", error));
+}
+
