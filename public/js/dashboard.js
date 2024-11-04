@@ -1,3 +1,42 @@
+/**
+ * Funcion que se ejecuta cuando se carga el DOM
+ */
+document.addEventListener('DOMContentLoaded', function () {
+    initDashboard();
+    setTimeout(() => {
+        logOut();
+    }, 1000);
+});
+
+/**
+ * Funcion que cierra la sesion del usuario
+ */
+function logOut() {
+    let logout = document.getElementById("logout");
+    logout.addEventListener("click", function () {
+        //abrir una ventana con alert de confirmacion
+        if (confirm("¿Estás seguro que deseas cerrar sesión?")) {
+            url = "http://localhost/sis-intranet-shaday/api/logout.php";
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText + " - " + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = "http://localhost/sis-intranet-shaday/public/index.html";
+                    }
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation: ', error);
+                });
+        }
+    });
+}
+
+
 // Simular datos de notas y pagos
 const notas = [
     {
@@ -91,16 +130,6 @@ function initDashboard() {
         });
     });
 }
-
-// Llamar a la función de inicialización al cargar la página
-document.addEventListener('DOMContentLoaded', initDashboard);
-
-// Cerrar sesión
-document.getElementById('logout').addEventListener('click', function () {
-    alert('Cerrando sesión...');
-    window.location.href = 'index.html'; // Redirigir a la página de inicio de sesión
-});
-
 // Cerrar el modal al hacer clic en la 'X'
 document.querySelector('.close').addEventListener('click', cerrarModal);
 
@@ -110,3 +139,5 @@ window.onclick = function (event) {
         cerrarModal();
     }
 };
+
+
