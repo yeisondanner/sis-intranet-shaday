@@ -1,0 +1,11 @@
+/* css/variables.css */
+
+:root {
+    --color-white: #FFFFFF;
+    --color-light-blue: #A1D3F5;
+    --color-medium-blue: #74C2E7;
+    --color-blue: #4C9BCF;
+    --color-dark-blue: #1A6F9E;
+    --color-light-gray: #D6D8DD;
+    --color-dark-gray: #4F5B66;
+}

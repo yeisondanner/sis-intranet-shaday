@@ -1,0 +1,239 @@
+@import url("vairables.css");
+@import url("loader.css");
+
+/* Estilos del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    text-align: center;
+    padding: 1rem;
+}
+
+.logo {
+    width: 100px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 1rem;
+    text-align: center;
+}
+
+.sidebar-menu li a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 2rem;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header h1 {
+    font-size: 24px;
+    color: var(--color-dark-blue);
+}
+
+header p {
+    color: var(--color-text-dark);
+}
+
+/* Botón de Toggle */
+.toggle-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--color-dark-blue);
+    cursor: pointer;
+}
+
+.content-dashboard {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: var(--color-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    flex: 1 1 calc(33.333% - 1rem);
+    min-width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: var(--color-dark-blue);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/*Componente de pagos*/
+.payment-history-container {
+    width: 90%;
+    max-width: 800px;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+}
+
+h2 {
+    color: var(--color-dark-blue);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+    overflow-x: auto;
+}
+
+.payment-table th,
+.payment-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.payment-table th {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    font-weight: bold;
+}
+
+.payment-table td {
+    color: var(--color-dark-gray);
+}
+
+.status-badge {
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: var(--color-white);
+    font-weight: bold;
+}
+
+.status-badge.paid {
+    background-color: var(--color-green);
+}
+
+.status-badge.pending {
+    background-color: var(--color-yellow);
+}
+
+.status-badge.overdue {
+    background-color: var(--color-red);
+}
+
+.btn-view-details,
+.btn-print {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-view-details:hover,
+.btn-print:hover {
+    background-color: var(--color-medium-blue);
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .payment-table thead {
+        display: none;
+    }
+    
+    .payment-table, .payment-table tbody, .payment-table tr, .payment-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .payment-table tr {
+        margin-bottom: 10px;
+        border: 1px solid var(--color-light-gray);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .payment-table td {
+        text-align: right;
+        padding: 10px 15px;
+        position: relative;
+    }
+
+    .payment-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--color-dark-blue);
+    }
+
+    .btn-view-details, .btn-print {
+        width: 100%;
+        margin-top: 5px;
+    }
+}

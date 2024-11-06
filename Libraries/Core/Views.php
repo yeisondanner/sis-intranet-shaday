@@ -8,7 +8,7 @@
 			if($controller == "Home"){
 				$view = "Views/".$view.".php";
 			}else{
-				$view = "Views/".$controller."/".$view.".php";
+				$view = "Views/App/".$controller."/".$view.".php";
 			}
 			require_once ($view);
 		}
