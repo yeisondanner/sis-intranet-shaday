@@ -16,7 +16,7 @@
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <img src="images/Logo.png" alt="Logo" class="logo">
+            <img src="<?= media() ?>/images/Logo.png" alt="Logo" class="logo">
             <h2>Intranet Shaday</h2>
         </div>
         <ul class="sidebar-menu">

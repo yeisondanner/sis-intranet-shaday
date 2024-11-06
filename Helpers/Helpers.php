@@ -51,22 +51,6 @@ function sendEmail($data, $template)
     return $send;
 }
 
-function getPermisos(int $idmodulo)
-{
-    require_once("Models/PermisosModel.php");
-    $objPermisos = new PermisosModel();
-    $idrol = $_SESSION['userData']['idrol'];
-    $arrPermisos = $objPermisos->permisosModulo($idrol);
-    $permisos = '';
-    $permisosMod = '';
-    if (count($arrPermisos) > 0) {
-        $permisos = $arrPermisos;
-        $permisosMod = isset($arrPermisos[$idmodulo]) ? $arrPermisos[$idmodulo] : "";
-    }
-    $_SESSION['permisos'] = $permisos;
-    $_SESSION['permisosMod'] = $permisosMod;
-}
-
 function sessionUser(int $idpersona)
 {
     require_once("Models/LoginModel.php");
@@ -138,4 +122,13 @@ function formatMoney($cantidad)
 {
     $cantidad = number_format($cantidad, 2, SPD, SPM);
     return $cantidad;
+}
+//Funcion que permite verificar si esta en sesion activa
+function isLogin()
+{
+    session_start(['name' => SESION_NAME]);
+    session_regenerate_id(true);
+    if (empty($_SESSION['login'])) {
+        header('Location: ' . base_url() . 'login');
+    }
 }

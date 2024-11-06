@@ -26,10 +26,5 @@ const EMAIL_REMITENTE = "no-reply@abelosh.com";
 const NOMBRE_EMPESA = "SHADAY";
 const WEB_EMPRESA = "";
 
-
-
-
-
-
-
-?>
+//Datos de la sesion
+const SESION_NAME = "SistemaSesionShaday";
