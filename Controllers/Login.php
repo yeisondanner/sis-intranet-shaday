@@ -4,9 +4,9 @@ class Login extends Controllers
 {
 	public function __construct()
 	{
-		session_start();
+		session_start(getNameSesion());
 		if (isset($_SESSION['login'])) {
-			header('Location: ' . base_url() . '/dashboard');
+			header('Location: ' . base_url() . 'dashboard');
 		}
 		parent::__construct();
 	}
@@ -41,10 +41,39 @@ class Login extends Controllers
 				'status' => false,
 				'type' => 'error',
 				'title' => 'Ocurrio un error inesperado',
-				'message' => 'Revisa'
+				'message' => 'Los campos estan vacios',
 			]);
 			die();
 		}
-		
+		$request = $this->model->selectUser($user, $password);
+		if (!$request) {
+			echo toJson([
+				'status' => false,
+				'type' => 'error',
+				'title' => 'Ocurrio un error inesperado',
+				'message' => 'Usuario o contraseña incorrectos, intente nuevamente',
+			]);
+			die();
+		}
+		if ($request['estado'] == 'bloqueado') {
+			echo toJson([
+				'status' => false,
+				'type' => 'error',
+				'title' => 'Ocurrio un error inesperado',
+				'message' => 'El usuario se encuentra bloqueado, contacte al administrador',
+			]);
+			die();
+
+		}
+		$_SESSION['login'] = true;
+		$_SESSION['user_info'] = $request;
+		echo toJson([
+			'status' => true,
+			'type' => 'success',
+			'title' => 'Bienvenido',
+			'message' => 'Bienvenido ' . $request['nombre'] . ' ' . $request['apellido'],
+			'url' => base_url() . 'dashboard',
+		]);
+		die();
 	}
 }

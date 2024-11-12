@@ -1,5 +1,9 @@
 <?php
-
+//Nombre de la sesion del proyecto
+function getNameSesion()
+{
+    return ["name" => SESION_NAME];
+}
 //Retorla la url del proyecto
 function base_url()
 {

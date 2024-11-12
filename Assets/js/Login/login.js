@@ -19,8 +19,12 @@ function login() {
         fetchData(url, config).then(data => {
             if (!data.status) {
                 showAlert(data.type, data.title, data.message);
+                return false;
             }
-            
+            showAlert(data.type, data.title, data.message);
+            setTimeout(() => {
+                window.location.href = data.url;
+            }, 3000);
         });
     });
 }

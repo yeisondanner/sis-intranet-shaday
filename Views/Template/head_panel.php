@@ -25,6 +25,6 @@
             <li><a href="#">Notas</a></li>
             <li><a href="#">Documentos</a></li>
             <li><a href="#">Ajustes</a></li>
-            <li><a href="index.html">Cerrar Sesión</a></li>
+            <li><a href="<?= base_url() ?>logout">Cerrar Sesión</a></li>
         </ul>
     </div>
