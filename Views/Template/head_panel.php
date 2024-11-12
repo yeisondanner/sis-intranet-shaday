@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $data['page_tag'] ?></title>
     <link rel="stylesheet" href="<?= media() . $data['page_libraries']['css'] ?>">
+    <link rel="stylesheet" href="<?= media() ?>/css/alerts.css">
 </head>
 
 <body>
@@ -25,6 +26,6 @@
             <li><a href="#">Notas</a></li>
             <li><a href="#">Documentos</a></li>
             <li><a href="#">Ajustes</a></li>
-            <li><a href="<?= base_url() ?>logout">Cerrar Sesión</a></li>
+            <li><a href="" id="logOut">Cerrar Sesión</a></li>
         </ul>
     </div>

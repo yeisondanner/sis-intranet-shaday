@@ -19,9 +19,11 @@ function login() {
         fetchData(url, config).then(data => {
             if (!data.status) {
                 showAlert(data.type, data.title, data.message);
+                loginForm.reset()
                 return false;
             }
             showAlert(data.type, data.title, data.message);
+            loginForm.reset();
             setTimeout(() => {
                 window.location.href = data.url;
             }, 3000);

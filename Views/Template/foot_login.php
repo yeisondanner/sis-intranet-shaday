@@ -1,3 +1,5 @@
+<div id="alert-container"></div>
+
 <script>
     const base_url = "<?= base_url() ?>";
 </script>

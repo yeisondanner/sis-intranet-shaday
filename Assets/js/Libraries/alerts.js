@@ -14,11 +14,11 @@ function showAlert(type, title, message) {
 }
 
 // Función para crear y mostrar alertas de confirmación
-function showConfirmAlert(title, message) {
+function showConfirmAlert(type, title, message) {
     const alertContainer = document.getElementById('alert-container');
     const alertBox = document.createElement('div');
 
-    alertBox.classList.add('alert', 'info');
+    alertBox.classList.add('alert', type);
     alertBox.innerHTML = `
         <span><strong>${title}</strong> - ${message}</span>
         <div class="confirm-buttons">
@@ -37,7 +37,7 @@ function closeAlert(button) {
 }
 
 // Función de confirmación
-function confirmAction(isConfirmed, button) {
+/*function confirmAction(isConfirmed, button) {
     const alertBox = button.parentElement.parentElement;
     if (isConfirmed) {
         alert('Has aceptado la acción.');
@@ -45,4 +45,4 @@ function confirmAction(isConfirmed, button) {
         alert('Has cancelado la acción.');
     }
     alertBox.remove();
-}
+}*/

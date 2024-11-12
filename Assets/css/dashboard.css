@@ -1,16 +1,22 @@
 @import url("vairables.css");
 @import url("loader.css");
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
 /* Estilos del cuerpo */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
     display: flex;
 }
 
 /* Sidebar */
 .sidebar {
-    width: 250px;
+    width: 17rem;
     background-color: var(--color-dark-blue);
     color: var(--color-white);
     height: 100vh;
@@ -26,28 +32,46 @@ body {
 }
 
 .logo {
-    width: 100px;
+    width: 10rem;
+}
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
 }
 
 .sidebar-menu {
     list-style: none;
     padding: 0;
     margin: 0;
+    width: 100%;
 }
 
 .sidebar-menu li {
-    padding: 1rem;
     text-align: center;
+    width: 100%;
 }
 
-.sidebar-menu li a {
+.sidebar-menu li>a {
+    display: flex;
     color: var(--color-white);
     text-decoration: none;
+    width: 100%;
+    padding: 1rem 0;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li>a:hover {
+    background-color: var(--color-blue);
 }
 
 /* Main Content */
 .main-content {
-    margin-left: 250px;
+    margin-left: 17rem;
     padding: 2rem;
     width: 100%;
 }
@@ -56,6 +80,7 @@ header {
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 header h1 {
@@ -67,14 +92,7 @@ header p {
     color: var(--color-text-dark);
 }
 
-/* Botón de Toggle */
-.toggle-btn {
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: var(--color-dark-blue);
-    cursor: pointer;
-}
+
 
 .content-dashboard {
     display: flex;
@@ -89,14 +107,44 @@ header p {
     flex: 1 1 calc(33.333% - 1rem);
     min-width: 200px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    background-color: var(--color-light-blue);
 }
 
 .card h3 {
     color: var(--color-dark-blue);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/*Boton de toggle*/
+.toggle-btn {
+    display: none;
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+    }
+
+    /* Botón de Toggle */
+    .toggle-btn {
+        display: block;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: var(--color-dark-blue);
+        cursor: pointer;
+    }
+
     .sidebar {
         transform: translateX(-100%);
         position: fixed;

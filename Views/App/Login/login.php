@@ -8,5 +8,4 @@
     <button type="submit">Ingresar</button>
   </form>
 </div>
-<div id="alert-container"></div>
 <?= footer_template($data) ?>
