@@ -27,5 +27,24 @@ class Login extends Controllers
 		);
 		$this->views->getView($this, "login", $data);
 	}
+
+	public function isLogin()
+	{
+		if (!$_POST) {
+			require_once './Error.php';
+			die();
+		}
+		$user = strClean($_POST["txtUser"]);
+		$password = strClean($_POST["txtPassword"]);
+		if ($user == "" || $password == "") {
+			echo toJson([
+				'status' => false,
+				'type' => 'error',
+				'title' => 'Ocurrio un error inesperado',
+				'message' => 'Revisa'
+			]);
+			die();
+		}
+		
+	}
 }
-?>

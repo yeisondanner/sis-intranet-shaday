@@ -132,3 +132,8 @@ function isLogin()
         header('Location: ' . base_url() . 'login');
     }
 }
+//Funcion que covierte el array en json de manera profesional
+function toJson($data)
+{
+    return json_encode($data, JSON_UNESCAPED_UNICODE);
+}

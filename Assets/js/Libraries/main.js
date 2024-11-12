@@ -37,9 +37,6 @@ function fetchData(url, data) {
             }
             return response.json();
         })
-        .then(data => {
-            return data;
-        })
         .catch(error => {
             console.error('Error:', error);
         });
