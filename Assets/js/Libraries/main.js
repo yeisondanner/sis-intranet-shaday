@@ -24,3 +24,23 @@ function loginContainer() {
         document.querySelector('.login-container').style.display = 'block';
     }
 }
+
+/*
+ *Funcion que permite conectarse a php con fetch
+ *
+ */
+function fetchData(url, data) {
+    return fetch(url, data)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud ' + response.status + " - " + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            return data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
