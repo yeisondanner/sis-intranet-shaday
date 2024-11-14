@@ -7,6 +7,7 @@
     <title><?= $data['page_tag'] ?></title>
     <link rel="stylesheet" href="<?= media() . $data['page_libraries']['css'] ?>">
     <link rel="stylesheet" href="<?= media() ?>/css/alerts.css">
+    <link rel="shortcut icon" href="<?= media() ?>/images/Logo.png" type="image/x-icon">
 </head>
 
 <body>

@@ -9,6 +9,7 @@
   </header>
   <section class="content-dashboard">
     <!-- Contenido dinámico -->
+
     <div class="card">
       <div class="card-header"><?= $_SESSION['user_info']['nombre'] . " " . $_SESSION['user_info']['apellido'] ?></div>
       <div class="card-body">
@@ -16,7 +17,7 @@
         <p><span class="label">Carrera:</span> <span class="value">Ingeniería de Software</span></p>
       </div>
     </div>
-    <div class="card">
+    <!--  <div class="card">
       <h3>Resumen Académico</h3>
       <p>Accede a tus notas, tareas y desempeño general.</p>
     </div>
@@ -27,7 +28,7 @@
     <div class="card">
       <h3>Calendario de Actividades</h3>
       <p>Consulta las próximas actividades y eventos.</p>
-    </div>
+    </div>Contenido dinámico -->
   </section>
 </div>
 <?= footer_template($data) ?>

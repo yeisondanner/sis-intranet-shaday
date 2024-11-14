@@ -141,3 +141,10 @@ function toJson($data)
 {
     return json_encode($data, JSON_UNESCAPED_UNICODE);
 }
+//function que activa la clase del menu de forma dinamica
+function activeMenu($data, int $page_id)
+{
+    if ($data['page_id'] == $page_id) {
+        return "active-menu-item";
+    }
+}

@@ -37,11 +37,12 @@ class Mysql extends Conexion
 		return $data;
 	}
 	//Devuelve todos los registros
-	public function select_all(string $query)
+	public function select_all(string $query, array $arrValues = [])
 	{
 		$this->strquery = $query;
+		$this->arrValues = $arrValues;
 		$result = $this->conexion->prepare($this->strquery);
-		$result->execute();
+		$result->execute($this->arrValues);
 		$data = $result->fetchall(PDO::FETCH_ASSOC);
 		return $data;
 	}
@@ -49,7 +50,7 @@ class Mysql extends Conexion
 	public function update(string $query, array $arrValues)
 	{
 		$this->strquery = $query;
-		$this->arrVAlues = $arrValues;
+		$this->arrValues = $arrValues;
 		$update = $this->conexion->prepare($this->strquery);
 		$resExecute = $update->execute($this->arrVAlues);
 		return $resExecute;

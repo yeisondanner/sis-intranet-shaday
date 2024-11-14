@@ -7,6 +7,8 @@
     <title><?= $data['page_tag'] ?></title>
     <link rel="stylesheet" href="<?= media() . $data['page_libraries']['css'] ?>">
     <link rel="stylesheet" href="<?= media() ?>/css/alerts.css">
+    <link rel="shortcut icon" href="<?= media() ?>/images/Logo.png" type="image/x-icon">
+
 </head>
 
 <body>
@@ -21,11 +23,8 @@
             <h2>Intranet Shaday</h2>
         </div>
         <ul class="sidebar-menu">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Perfil</a></li>
-            <li><a href="#">Notas</a></li>
-            <li><a href="#">Documentos</a></li>
-            <li><a href="#">Ajustes</a></li>
+            <li><a href="<?= base_url() ?>dashboard" class="<?= activeMenu($data, 2) ?>">Inicio</a></li>
+            <li><a href="<?= base_url() ?>notas" class="<?= activeMenu($data, 3) ?>">Notas</a></li>
             <li><a href="" id="logOut">Cerrar Sesión</a></li>
         </ul>
     </div>

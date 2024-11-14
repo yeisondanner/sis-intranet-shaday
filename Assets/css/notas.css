@@ -1,86 +1,8 @@
 @import url("vairables.css");
 @import url("loader.css");
+@import url("navSiderbar.css");
 
-/* Estilos del cuerpo */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    display: flex;
-}
 
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    background-color: var(--color-dark-blue);
-    color: var(--color-white);
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    transition: transform 0.3s ease;
-}
-
-.sidebar-header {
-    text-align: center;
-    padding: 1rem;
-}
-
-.logo {
-    width: 100px;
-}
-
-.sidebar-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-menu li {
-    padding: 1rem;
-    text-align: center;
-}
-
-.sidebar-menu li a {
-    color: var(--color-white);
-    text-decoration: none;
-}
-
-/* Main Content */
-.main-content {
-    margin-left: 250px;
-    padding: 2rem;
-    width: 100%;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-header h1 {
-    font-size: 24px;
-    color: var(--color-dark-blue);
-}
-
-header p {
-    color: var(--color-text-dark);
-}
-
-/* Botón de Toggle */
-.toggle-btn {
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: var(--color-dark-blue);
-    cursor: pointer;
-}
-
-.content-dashboard {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
 
 .card {
     background-color: var(--color-gray);
@@ -94,25 +16,6 @@ header p {
 .card h3 {
     color: var(--color-dark-blue);
 }
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .sidebar {
-        transform: translateX(-100%);
-        position: fixed;
-    }
-
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    .main-content {
-        margin-left: 0;
-    }
-}
-
-
-
 
 /*componente css notas*/
 .grades-container {

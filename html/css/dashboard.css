@@ -1,12 +1,7 @@
 @import url("vairables.css");
 @import url("loader.css");
 
-/* Estilos del cuerpo */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    display: flex;
-}
+
 
 /* Sidebar */
 .sidebar {
