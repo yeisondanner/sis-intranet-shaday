@@ -33,8 +33,16 @@ class Notas extends Controllers
     function getCarreras()
     {
         $idEstudiante = $_SESSION['user_info']['estudiante_id'];
-        $request = $this->model->selectCarreras($idEstudiante);
-        echo toJson($request);
+        $dataCarreras = $this->model->selectCarrerasByIdEstudiante($idEstudiante);
+        foreach ($dataCarreras as $key => $value) {
+            $dataModulos = $this->model->selectCarrerasByIdCarrera($idEstudiante, $value["carrera_id"]);
+            foreach ($dataModulos as $key => $value) {
+                echo $value["modulo_id"];
+                $dataModulos[$key]["notas"] = $this->model->selectNotasModuloCarreraByIdModulo($idEstudiante, $value["modulo_id"]);
+            }
+            $dataCarreras[$key]["modulos"] = $dataModulos;
+        }
+        echo toJson($dataCarreras);
     }
 
 }

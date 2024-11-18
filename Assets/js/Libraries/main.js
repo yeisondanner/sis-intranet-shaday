@@ -44,6 +44,9 @@ function fetchData(url, data) {
 }
 
 function LogOut() {
+    if (!document.getElementById('logOut')) {
+        return;
+    }
     let logOut = document.getElementById('logOut');
     logOut.addEventListener('click', function (e) {
         e.preventDefault();
