@@ -33,7 +33,7 @@
         </div>
 
         <div class="history-information" id="history-information">
-            <div class="accordion-container">
+            <!--  <div class="accordion-container">
                 <h2>Computacion e Informatica: Historial de Módulos</h2>
                 <div class="accordion" onclick="toggleAccordion('moduleI')">
                     <h3>Módulo I</h3>
@@ -50,7 +50,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="accordion" onclick="toggleAccordion('moduleII')">
                     <h3>Módulo II</h3>
                 </div>
@@ -66,7 +65,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="accordion" onclick="toggleAccordion('moduleIV')">
                     <h3>Módulo IV</h3>
                 </div>
@@ -82,9 +80,8 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Agregar más módulos como sea necesario -->
-            </div>
+                Agregar más módulos como sea necesario 
+            </div>-->
         </div>
     </div>
 

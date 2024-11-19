@@ -35,10 +35,9 @@ class Notas extends Controllers
         $idEstudiante = $_SESSION['user_info']['estudiante_id'];
         $dataCarreras = $this->model->selectCarrerasByIdEstudiante($idEstudiante);
         foreach ($dataCarreras as $key => $value) {
-            $dataModulos = $this->model->selectCarrerasByIdCarrera($idEstudiante, $value["carrera_id"]);
-            foreach ($dataModulos as $key => $value) {
-                echo $value["modulo_id"];
-                $dataModulos[$key]["notas"] = $this->model->selectNotasModuloCarreraByIdModulo($idEstudiante, $value["modulo_id"]);
+            $dataModulos = $this->model->selectModuloByIdCarreras($idEstudiante, $value["carrera_id"]);
+            foreach ($dataModulos as $ky => $val) {
+                $dataModulos[$ky]["notas"] = $this->model->selectNotasModuloCarreraByIdModulo($idEstudiante, $val["modulo_id"]);
             }
             $dataCarreras[$key]["modulos"] = $dataModulos;
         }

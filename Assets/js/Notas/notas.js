@@ -52,7 +52,21 @@ function cargarHistorialCarreras() {
 
     fetchData(url, config)
         .then(data => {
-            console.log(data);
+            let historyCarreras = document.getElementById("history-information");
+            let content = ""
+            data.forEach(element => {
+                content += `                
+                <div class="accordion-container">
+                <h2>${element.nombre}: Historial de Módulos</h2>`
+                const arrModules = element.modulos;
+                arrModules.forEach(module => {
+                    console.log(module);
+                });
+                content += `
+                </div>
+                `
+            });
+            historyCarreras.innerHTML = content;
         })
 }
 
