@@ -59,8 +59,64 @@ function cargarHistorialCarreras() {
                 <div class="accordion-container">
                 <h2>${element.nombre}: Historial de Módulos</h2>`
                 const arrModules = element.modulos;
+                //ordenar por nombre de módulo
+                arrModules.sort((b, a) => a.nombre.localeCompare(b.nombre));
                 arrModules.forEach(module => {
-                    console.log(module);
+                    let name = module.nombre;
+                    let id = module.modulo_id;
+                    let idName = name.replace(/\s+/g, '') + id;
+                    let arrNotas = module.notas[0];
+                    let badgeEstado = module.estado == "Finalizado" ? "badge-green" : "badge-red";
+                    content += `
+                    <div class="accordion" onclick="toggleAccordion('${idName}')">
+                        <h3>${name}</h3>
+                        <span class="badge ${badgeEstado}">${module.estado}</span>
+                    </div>
+                    <div id="${idName}" class="accordion-content">
+                        <div class="grades-table">
+                            <div class="grades-row">
+                                <div class="grades-cell"><strong>Parcial 1</strong></div>
+                                <div class="grades-cell">${arrNotas.nota1}</div>
+                                <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
+                                        Detalle</button></div>
+                                <div class="grades-cell"><button class="btn-print"
+                                        onclick="openModal('modalPrintI')">Imprimir</button></div>
+                            </div>
+                             <div class="grades-row">
+                                <div class="grades-cell"><strong>Parcial 2</strong></div>
+                                <div class="grades-cell">${arrNotas.nota2}</div>
+                                <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
+                                        Detalle</button></div>
+                                <div class="grades-cell"><button class="btn-print"
+                                        onclick="openModal('modalPrintI')">Imprimir</button></div>
+                            </div>
+                            <div class="grades-row">
+                                <div class="grades-cell"><strong>Parcial 3</strong></div>
+                                <div class="grades-cell">${arrNotas.nota3}</div>
+                                <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
+                                        Detalle</button></div>
+                                <div class="grades-cell"><button class="btn-print"
+                                        onclick="openModal('modalPrintI')">Imprimir</button></div>
+                            </div>
+                            <div class="grades-row">
+                                <div class="grades-cell"><strong>Parcial 4</strong></div>
+                                <div class="grades-cell">${arrNotas.nota4}</div>
+                                <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
+                                        Detalle</button></div>
+                                <div class="grades-cell"><button class="btn-print"
+                                        onclick="openModal('modalPrintI')">Imprimir</button></div>
+                            </div>
+                            <div class="grades-row">
+                                <div class="grades-cell"><strong>Pomedio Final</strong></div>
+                                <div class="grades-cell">${arrNotas.promedio}</div>
+                                <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
+                                        Detalle</button></div>
+                                <div class="grades-cell"><button class="btn-print"
+                                        onclick="openModal('modalPrintI')">Imprimir</button></div>
+                            </div>
+                        </div>
+                    </div>          
+                    `
                 });
                 content += `
                 </div>

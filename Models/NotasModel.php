@@ -35,7 +35,7 @@ class NotasModel extends Mysql
      */
     public function selectModuloByIdCarreras(int $idEstudiante, int $idCarrera)
     {
-        $sql = "SELECT  m.modulo_id, m.nombre FROM estuidante_docente_modulo AS edm
+        $sql = "SELECT  m.modulo_id, m.nombre, edm.estado FROM estuidante_docente_modulo AS edm
                 INNER JOIN modulo AS m ON m.modulo_id=edm.modulo_id
                 WHERE edm.estudiante_id=? AND m.carrera_id =?;";
         $this->idCarrera = $idCarrera;
