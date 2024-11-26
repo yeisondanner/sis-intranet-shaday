@@ -77,42 +77,42 @@ function cargarHistorialCarreras() {
                             <div class="grades-row">
                                 <div class="grades-cell"><strong>Parcial 1</strong></div>
                                 <div class="grades-cell">${arrNotas.nota1}</div>
-                                <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
+                                 <!-- <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
                                         Detalle</button></div>
-                                <div class="grades-cell"><button class="btn-print"
-                                        onclick="openModal('modalPrintI')">Imprimir</button></div>
+                                   <div class="grades-cell"><button class="btn-print"
+                                        onclick="openModal('modalPrintI')">Imprimir</button></div>-->
                             </div>
                              <div class="grades-row">
                                 <div class="grades-cell"><strong>Parcial 2</strong></div>
                                 <div class="grades-cell">${arrNotas.nota2}</div>
-                                <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
+                             <!-- <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
                                         Detalle</button></div>
-                                <div class="grades-cell"><button class="btn-print"
-                                        onclick="openModal('modalPrintI')">Imprimir</button></div>
+                                   <div class="grades-cell"><button class="btn-print"
+                                        onclick="openModal('modalPrintI')">Imprimir</button></div>-->
                             </div>
                             <div class="grades-row">
                                 <div class="grades-cell"><strong>Parcial 3</strong></div>
                                 <div class="grades-cell">${arrNotas.nota3}</div>
-                                <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
+                               <!-- <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
                                         Detalle</button></div>
-                                <div class="grades-cell"><button class="btn-print"
-                                        onclick="openModal('modalPrintI')">Imprimir</button></div>
+                                   <div class="grades-cell"><button class="btn-print"
+                                        onclick="openModal('modalPrintI')">Imprimir</button></div>-->
                             </div>
                             <div class="grades-row">
                                 <div class="grades-cell"><strong>Parcial 4</strong></div>
                                 <div class="grades-cell">${arrNotas.nota4}</div>
-                                <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
+                                 <!-- <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
                                         Detalle</button></div>
-                                <div class="grades-cell"><button class="btn-print"
-                                        onclick="openModal('modalPrintI')">Imprimir</button></div>
+                                   <div class="grades-cell"><button class="btn-print"
+                                        onclick="openModal('modalPrintI')">Imprimir</button></div>-->
                             </div>
                             <div class="grades-row">
                                 <div class="grades-cell"><strong>Pomedio Final</strong></div>
                                 <div class="grades-cell">${arrNotas.promedio}</div>
-                                <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
+                                  <!-- <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailI')">Ver
                                         Detalle</button></div>
-                                <div class="grades-cell"><button class="btn-print"
-                                        onclick="openModal('modalPrintI')">Imprimir</button></div>
+                                   <div class="grades-cell"><button class="btn-print"
+                                        onclick="openModal('modalPrintI')">Imprimir</button></div>-->
                             </div>
                         </div>
                     </div>          

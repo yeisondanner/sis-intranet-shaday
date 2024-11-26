@@ -10,28 +10,6 @@
     <!--Historial notas-->
     <div class="grades-container">
         <h1 class="grades-title">Historial de Notas</h1>
-        <div class="current-module">
-            <h2>Módulo Actual: Módulo III</h2>
-            <div class="grades-table">
-                <div class="grades-row">
-                    <div class="grades-cell"><strong>Parcial 1</strong></div>
-                    <div class="grades-cell">85</div>
-                    <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailCurrent')">Ver
-                            Detalle</button></div>
-                    <div class="grades-cell"><button class="btn-print"
-                            onclick="openModal('modalPrintCurrent')">Imprimir</button></div>
-                </div>
-                <div class="grades-row">
-                    <div class="grades-cell"><strong>Parcial 2</strong></div>
-                    <div class="grades-cell">90</div>
-                    <div class="grades-cell"><button class="btn-detail" onclick="openModal('modalDetailCurrent')">Ver
-                            Detalle</button></div>
-                    <div class="grades-cell"><button class="btn-print"
-                            onclick="openModal('modalPrintCurrent')">Imprimir</button></div>
-                </div>
-            </div>
-        </div>
-
         <div class="history-information" id="history-information">
             <!--  <div class="accordion-container">
                 <h2>Computacion e Informatica: Historial de Módulos</h2>
