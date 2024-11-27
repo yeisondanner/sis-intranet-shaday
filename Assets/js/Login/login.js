@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function login() {
-    let loginForm = document.getElementById("loginForm");
+    let loginForm = document.getElementById("loginFormStudent");
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const body = new FormData(loginForm);

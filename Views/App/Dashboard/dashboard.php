@@ -12,10 +12,10 @@
 
     <div class="card">
       <div class="card-header"><?= $_SESSION['user_info']['nombre'] . " " . $_SESSION['user_info']['apellido'] ?></div>
-      <div class="card-body">
+        <!-- <div class="card-body">
         <p><span class="label">Módulo actual:</span> <span class="value">II</span></p>
         <p><span class="label">Carrera:</span> <span class="value">Ingeniería de Software</span></p>
-      </div>
+      </div>-->
     </div>
     <!--  <div class="card">
       <h3>Resumen Académico</h3>
