@@ -1,0 +1,112 @@
+@import url('variables.css');
+
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-light-gray);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.grade-header {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+    text-align: center;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.grade-header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Main Content */
+.grade-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+/* Container */
+.grade-container {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Table */
+.grade-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.grade-table th,
+.grade-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.grade-table th {
+    background-color: var(--color-medium-blue);
+    color: var(--color-white);
+    font-weight: bold;
+}
+
+.grade-table tr:nth-child(even) {
+    background-color: var(--color-light-blue);
+}
+
+.grade-table tr:hover {
+    background-color: var(--color-light-gray);
+}
+
+/* Inputs */
+.grade-input {
+    width: 80%;
+    padding: 0.5rem;
+    border: 2px solid var(--color-light-gray);
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--color-white);
+}
+
+.grade-input::placeholder {
+    color: var(--color-dark-gray);
+    font-size: 0.8rem;
+}
+
+.grade-input:focus {
+    outline: none;
+    border-color: var(--color-dark-blue);
+    box-shadow: 0 0 8px var(--color-blue);
+    background-color: var(--color-light-blue);
+}
+
+.grade-input:invalid {
+    border-color: red;
+}
+
+.grade-input:valid {
+    border-color: var(--color-medium-blue);
+}
+
+/* Mejorando el promedio */
+.grade-average {
+    font-weight: bold;
+    color: var(--color-blue);
+    font-size: 1rem;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}

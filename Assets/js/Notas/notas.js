@@ -45,29 +45,29 @@ function toggleAccordion(moduleId) {
  * Funcion que carga el historial de carreras
  */
 function cargarHistorialCarreras() {
-    const config = {
-        method: "POST"
-    }
-    const url = base_url + "notas/getCarreras";
-
-    fetchData(url, config)
-        .then(data => {
-            let historyCarreras = document.getElementById("history-information");
-            let content = ""
-            data.forEach(element => {
-                content += `                
+    if (document.getElementById("history-information")) {
+        const config = {
+            method: "POST"
+        }
+        const url = base_url + "notas/getCarreras";
+        fetchData(url, config)
+            .then(data => {
+                let historyCarreras = document.getElementById("history-information");
+                let content = ""
+                data.forEach(element => {
+                    content += `                
                 <div class="accordion-container">
                 <h2>${element.nombre}: Historial de Módulos</h2>`
-                const arrModules = element.modulos;
-                //ordenar por nombre de módulo
-                arrModules.sort((b, a) => a.nombre.localeCompare(b.nombre));
-                arrModules.forEach(module => {
-                    let name = module.nombre;
-                    let id = module.modulo_id;
-                    let idName = name.replace(/\s+/g, '') + id;
-                    let arrNotas = module.notas[0];
-                    let badgeEstado = module.estado == "Finalizado" ? "badge-green" : "badge-red";
-                    content += `
+                    const arrModules = element.modulos;
+                    //ordenar por nombre de módulo
+                    arrModules.sort((b, a) => a.nombre.localeCompare(b.nombre));
+                    arrModules.forEach(module => {
+                        let name = module.nombre;
+                        let id = module.modulo_id;
+                        let idName = name.replace(/\s+/g, '') + id;
+                        let arrNotas = module.notas[0];
+                        let badgeEstado = module.estado == "Finalizado" ? "badge-green" : "badge-red";
+                        content += `
                     <div class="accordion" onclick="toggleAccordion('${idName}')">
                         <h3>${name}</h3>
                         <span class="badge ${badgeEstado}">${module.estado}</span>
@@ -117,12 +117,13 @@ function cargarHistorialCarreras() {
                         </div>
                     </div>          
                     `
-                });
-                content += `
+                    });
+                    content += `
                 </div>
                 `
-            });
-            historyCarreras.innerHTML = content;
-        })
+                });
+                historyCarreras.innerHTML = content;
+            })
+    }
 }
 

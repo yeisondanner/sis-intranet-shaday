@@ -25,6 +25,7 @@
         <ul class="sidebar-menu">
             <li><a href="<?= base_url() ?>dashboard" class="<?= activeMenu($data, 2) ?>">Inicio</a></li>
             <li><a href="<?= base_url() ?>notas" class="<?= activeMenu($data, 3) ?>">Notas</a></li>
+            <li><a href="<?= base_url() ?>notas/set" class="<?= activeMenu($data, 4) ?>">Ingreso Notas</a></li>
             <li><a href="" id="logOut">Cerrar Sesión</a></li>
         </ul>
     </div>

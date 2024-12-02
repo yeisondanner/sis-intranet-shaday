@@ -28,7 +28,7 @@ class Login extends Controllers
 		$this->views->getView($this, "login", $data);
 	}
 
-	public function isLogin()
+	public function isLoginStudent()
 	{
 		if (!$_POST) {
 			require_once './Error.php';
@@ -45,7 +45,7 @@ class Login extends Controllers
 			]);
 			die();
 		}
-		$request = $this->model->selectUser($user, $password);
+		$request = $this->model->selectUserStudent($user, $password);
 		if (!$request) {
 			echo toJson([
 				'status' => false,
@@ -66,12 +66,62 @@ class Login extends Controllers
 
 		}
 		$_SESSION['login'] = true;
+		$_SESSION['user_type'] = 'estudiante';
 		$_SESSION['user_info'] = $request;
 		echo toJson([
 			'status' => true,
 			'type' => 'success',
 			'title' => 'Bienvenido',
-			'message' => 'Bienvenido ' . $request['nombre'] . ' ' . $request['apellido'],
+			'message' => 'Bienvenido Estudiante: ' . $request['nombre'] . ' ' . $request['apellido'],
+			'url' => base_url() . 'dashboard',
+		]);
+		die();
+	}
+	public function isLoginTeacher()
+	{
+		if (!$_POST) {
+			require_once './Error.php';
+			die();
+		}
+		$user = strClean($_POST["txtUser"]);
+		$password = strClean($_POST["txtPassword"]);
+		if ($user == "" || $password == "") {
+			echo toJson([
+				'status' => false,
+				'type' => 'error',
+				'title' => 'Ocurrio un error inesperado',
+				'message' => 'Los campos estan vacios',
+			]);
+			die();
+		}
+		$request = $this->model->selectUserTeacher($user, $password);
+		if (!$request) {
+			echo toJson([
+				'status' => false,
+				'type' => 'error',
+				'title' => 'Ocurrio un error inesperado',
+				'message' => 'Usuario o contraseña incorrectos, intente nuevamente',
+			]);
+			die();
+		}
+		if ($request['estado'] == 'bloqueado') {
+			echo toJson([
+				'status' => false,
+				'type' => 'error',
+				'title' => 'Ocurrio un error inesperado',
+				'message' => 'El usuario se encuentra bloqueado, contacte al administrador',
+			]);
+			die();
+
+		}
+		$_SESSION['login'] = true;
+		$_SESSION['user_type'] = 'docente';
+		$_SESSION['user_info'] = $request;
+		echo toJson([
+			'status' => true,
+			'type' => 'success',
+			'title' => 'Bienvenido',
+			'message' => 'Bienvenido Docente: ' . $request['nombre'] . ' ' . $request['apellido'],
 			'url' => base_url() . 'dashboard',
 		]);
 		die();

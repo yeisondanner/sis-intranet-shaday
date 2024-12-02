@@ -26,6 +26,22 @@ class Notas extends Controllers
         );
         $this->views->getView($this, "notas", $data);
     }
+    public function set()
+    {
+        $data['page_id'] = 4;
+        $data['page_tag'] = "Ingreso de Notas - Shaday";
+        $data['page_title'] = "Notas";
+        $data['page_name'] = "Notas";
+        $data['page_libraries'] = array(
+            'css' => '/css/set.css',
+            "js" => '/js/Notas/notas.js'
+        );
+        $data['page_template'] = array(
+            'head' => 'head_panel.php',
+            'foot' => 'foot_panel.php'
+        );
+        $this->views->getView($this, "set", $data);
+    }
 
     /**
      * Funcion que las carreras del estudiante que este estudiando y logeado
