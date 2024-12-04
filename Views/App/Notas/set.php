@@ -10,21 +10,15 @@
         <p>Accede a la información importante desde tu panel.</p>
     </header>
     <section class="content-dashboard">
-        <div class="card" onclick="openModal('Modulo I', 'Computación e Informática', 'path-to-image1.jpg')">
-            <img src="path-to-image1.jpg" alt="Imagen Modulo I" class="card-img">
-            <h3>Modulo I</h3>
-            <p>Computación e Informática</p>
-        </div>
-        <div class="card" onclick="openModal('Modulo II', 'Computación e Informática', 'path-to-image2.jpg')">
-            <img src="path-to-image2.jpg" alt="Imagen Modulo II" class="card-img">
-            <h3>Modulo II</h3>
-            <p>Computación e Informática</p>
-        </div>
-        <div class="card" onclick="openModal('Modulo III', 'Computación e Informática', 'path-to-image3.jpg')">
-            <img src="path-to-image3.jpg" alt="Imagen Modulo III" class="card-img">
-            <h3>Modulo III</h3>
-            <p>Computación e Informática</p>
-        </div>
+        <?php
+        foreach ($data['page_dataCarrerasDocente'] as $key => $value) {
+            ?>
+            <div class="card" onclick="openModal('Modulo I', 'Computación e Informática', 'path-to-image1.jpg')">
+                <img src="<?= $value["imagen"] ?>" alt="<?= $value["modulo"] ?>" class="card-img">
+                <h3><?= $value["modulo"] ?></h3>
+                <p><?= $value["aula"] . "-" . $value["carrera"] ?></p>
+            </div>
+        <?php } ?>
     </section>
 
     <!-- Modal -->

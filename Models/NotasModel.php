@@ -4,6 +4,7 @@ class NotasModel extends Mysql
     private $idEstudiante;
     private $idCarrera;
     private $idModulo;
+    private $idDocente;
     public function __construct()
     {
         parent::__construct();
@@ -44,7 +45,12 @@ class NotasModel extends Mysql
         $request = $this->select_all($sql, $arrData);
         return $request;
     }
-
+    /**
+     * Summary of selectNotasModuloCarreraByIdModulo
+     * @param int $idEstudiante
+     * @param int $idModulo
+     * @return array
+     */
     public function selectNotasModuloCarreraByIdModulo(int $idEstudiante, int $idModulo)
     {
         $sql = "SELECT n.* FROM estuidante_docente_modulo AS edm
@@ -54,6 +60,17 @@ class NotasModel extends Mysql
         $this->idEstudiante = $idEstudiante;
         $arrData = array($this->idEstudiante, $this->idModulo);
         $request = $this->select_all($sql, $arrData);
+        return $request;
+    }
+    public function selectCarreraModulobyDocente(int $idDocente)
+    {
+        $sql = 'SELECT c.nombre AS carrera, m.nombre AS modulo,c.imagen , edm.aula, edm.estado, edm.estuidante_docente_modulo_id,edm.estudiante_id,edm.docente_id,edm.modulo_id FROM carrera AS c
+            INNER JOIN modulo AS m ON m.carrera_id=c.carrera_id
+            INNER JOIN estuidante_docente_modulo AS edm ON edm.modulo_id=m.modulo_id
+            WHERE edm.estado ="Iniciado" AND edm.docente_id=? 
+            ORDER BY edm.aula;';
+        $this->idDocente = $idDocente;
+        $request = $this->select_all($sql,[$this->idDocente]);
         return $request;
     }
 }

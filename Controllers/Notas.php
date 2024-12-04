@@ -32,6 +32,7 @@ class Notas extends Controllers
         $data['page_tag'] = "Ingreso de Notas - Shaday";
         $data['page_title'] = "Notas";
         $data['page_name'] = "Notas";
+        $data['page_dataCarrerasDocente'] = $this->getCarrerasDocente();
         $data['page_libraries'] = array(
             'css' => '/css/set.css',
             "js" => '/js/Notas/notas.js'
@@ -58,6 +59,15 @@ class Notas extends Controllers
             $dataCarreras[$key]["modulos"] = $dataModulos;
         }
         echo toJson($dataCarreras);
+    }
+    /**
+     * Funcion que obtiene las carreras asignadas al docente que esta logeado
+     */
+    function getCarrerasDocente()
+    {
+        $idDocente = $_SESSION['user_info']['docente_id'];
+        $dataCarreras = $this->model->selectCarreraModulobyDocente($idDocente);
+        return $dataCarreras;
     }
 
 }
