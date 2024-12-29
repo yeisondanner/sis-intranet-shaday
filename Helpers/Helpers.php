@@ -131,6 +131,7 @@ function formatMoney($cantidad)
 function isLogin()
 {
     session_start(['name' => SESION_NAME]);
+    session_regenerate_id(true);
     if (empty($_SESSION['login'])) {
         header('Location: ' . base_url() . 'login');
     }
