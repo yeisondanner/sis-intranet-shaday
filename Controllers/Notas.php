@@ -12,6 +12,10 @@ class Notas extends Controllers
      */
     public function notas()
     {
+        if ($_SESSION['user_type'] != "estudiante") {
+            require_once "./Views/App/Errors/error.php";
+            exit;
+        }
         $data['page_id'] = 3;
         $data['page_tag'] = "Notas - Shaday";
         $data['page_title'] = "Notas";
@@ -24,16 +28,21 @@ class Notas extends Controllers
             'head' => 'head_panel.php',
             'foot' => 'foot_panel.php'
         );
+
         $this->views->getView($this, "notas", $data);
     }
     public function set()
     {
+        if ($_SESSION['user_type'] != "docente") {
+            require_once "./Views/App/Errors/error.php";
+            exit;
+        }
         $data['page_id'] = 4;
         $data['page_tag'] = "Ingreso de Notas - Shaday";
         $data['page_title'] = "Notas";
         $data['page_name'] = "Notas";
         $data['page_libraries'] = array(
-            'css' => '/css/set.css',
+            'css' => '/css/setNotas.css',
             "js" => '/js/Notas/notas.js'
         );
         $data['page_template'] = array(
