@@ -1,34 +1,46 @@
-<?= header_template($data) ?>
+<?= headerAdmin($data) ?>
+<main class="app-content">
+    <div class="app-title pt-5">
+        <div>
+            <h1 class="text-primary"><i class="fa fa-dashboard"></i> <?= $data["page_title"] ?></h1>
+            <p><?= $data["page_description"] ?></p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item"><a
+                    href="<?= base_url() ?>/<?= $data['page_view'] ?>"><?= $data["page_title"] ?></a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <?php
+        foreach ($data['page_widget'] as $key => $value) {
+            ?>
+            <div class="col-md-6 col-lg-3">
+                <a href="<?= $value['link'] ?>" title="<?= $value['text'] ?>" data-toggle="tooltip"
+                    class="bg-white rounded mb-3 widget-small <?= $value['color'] ?> coloured-icon"
+                    style="text-decoration: none;"><i class="icon <?= $value['icon'] ?> fa-3x"></i>
+                    <div class="info text-dark">
+                        <h4><?= $value['title'] ?></h4>
+                        <p><b><?= $value['value'] ?></b></p>
+                    </div>
+                </a>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
 
-<div class="main-content">
-  <header>
-    <!-- Botón de Toggle para mostrar/ocultar la Sidebar -->
-    <button id="toggle-btn" class="toggle-btn">&#9776;</button>
-    <h1>Bienvenido, <?=$_SESSION['user_type'].": ". $_SESSION['user_info']['nombre'] . " " . $_SESSION['user_info']['apellido'] ?></h1>
-    <p>Accede a la información importante desde tu panel.</p>
-  </header>
-  <section class="content-dashboard">
-    <!-- Contenido dinámico -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <h2>Interfaces de login</h2>
+                <?php dep($_SESSION['login_interface']); ?>
+                <h2>Variables de sesion activas</h2>
+                <?php dep($_SESSION); ?>
+            </div>
+        </div>
 
-    <div class="card">
-      <div class="card-header"><?= $_SESSION['user_info']['nombre'] . " " . $_SESSION['user_info']['apellido'] ?></div>
-        <!-- <div class="card-body">
-        <p><span class="label">Módulo actual:</span> <span class="value">II</span></p>
-        <p><span class="label">Carrera:</span> <span class="value">Ingeniería de Software</span></p>
-      </div>-->
     </div>
-    <!--  <div class="card">
-      <h3>Resumen Académico</h3>
-      <p>Accede a tus notas, tareas y desempeño general.</p>
-    </div>
-    <div class="card">
-      <h3>Noticias Institucionales</h3>
-      <p>Mantente informado de las novedades y comunicados.</p>
-    </div>
-    <div class="card">
-      <h3>Calendario de Actividades</h3>
-      <p>Consulta las próximas actividades y eventos.</p>
-    </div>Contenido dinámico -->
-  </section>
-</div>
-<?= footer_template($data) ?>
+
+</main>
+<?= footerAdmin($data) ?>

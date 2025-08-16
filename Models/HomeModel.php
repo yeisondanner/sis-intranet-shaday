@@ -1,10 +1,8 @@
-<?php 
-
-	class HomeModel extends Mysql
+<?php
+class HomeModel extends Mysql
+{
+	public function __construct()
 	{
-		public function __construct()
-		{
-			parent::__construct();
-		}	
+		parent::__construct();
 	}
- ?>
+}

@@ -11,14 +11,17 @@ class Conexion
 			$this->conect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			//echo "conexión exitosa";
 		} catch (PDOException $e) {
-			$this->conect = 'Error de conexión';
-			echo toJson([
-				'status' => false,
-				'type' => 'error',
-				'title' => 'Ocurrio un error inesperado',
-				'message' => $e->getMessage()
-			]);
-			die();
+			$this->conect = 'Conexion Cerrada';
+			$idUser = isset($_SESSION['login_info']) ? $_SESSION['login_info']['idUser'] : 0;
+			$message = "Error: " . $e->getMessage() . "<br>" . $this->conect . " - " . $e->getCode();
+			registerLog("Ocurrio un error inesperado", $message, 1, $idUser);
+			$data = array(
+				"title" => "Ocurrio un error grave",
+				"message" => $message,
+				"type" => "error",
+				"status" => false
+			);
+			toJson($data);
 		}
 	}
 
